@@ -1,0 +1,86 @@
+* {
+	color: purple;
+}
+
+ul {
+	list-style-type: none;
+	text-align: center;
+}
+
+body {
+	background-image: url("gifs/highQuality.gif");
+	background-size: cover;
+	background-position: 0% 23%;
+}
+
+footer {
+	position: absolute;
+    bottom: 10px;
+	left: 10px;
+}
+
+a, a:hover, a:visited {
+	color: purple;
+	transition: font-size .125s ease-in-out;
+}
+
+a:hover {
+	font-size: 150%;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-position: center top;
+  }
+  
+  #center, #centerAbtMe, #innerBorder {
+    margin-top: 10vh !important;
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  a:hover {
+    font-size: 120%; /* Reduce hover swell for small screens */
+  }
+  
+  footer {
+    position: static;
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+}
+
+
+#credit, #credit:hover, #credit:visited {
+	font-size: 69%;
+	border-radius: 5px;
+	padding: 5px;
+	backdrop-filter: blur(50px);
+}
+
+#centerAbtMe {
+	margin: auto;
+	margin-top: 30vh;
+	backdrop-filter: blur(50px);
+	border-radius: 15px;
+	width: 90%; max-width: 400px;
+	padding: 7px;
+}
+
+#center {
+	margin: auto;
+	margin-top: 30vh;
+	backdrop-filter: blur(0px);
+	border-radius: 0px;
+	width: 90%; max-width: 400px;
+	padding: 7px;
+	text-align: center;
+}
+
+#innerBorder {
+	border-radius: 10px;
+	border: solid 2px purple;
+	padding: 25px;
+	display: block;
+	position: relative; margin: 1rem auto; padding: 1.5rem; max-width: 90%;
+}
