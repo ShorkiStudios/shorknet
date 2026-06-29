@@ -11,9 +11,10 @@ export default {
     }
 
     const form = await request.formData();
-    const name = (form.get('name') || '').trim().slice(0, 60);
-    const url  = (form.get('url') || '').trim().slice(0, 200);
-    const msg  = (form.get('msg') || '').trim().slice(0, 2000);
+    const name  = (form.get('name') || '').trim().slice(0, 60);
+    const email = (form.get('email') || '').trim().slice(0, 200);
+    const url   = (form.get('url') || '').trim().slice(0, 200);
+    const msg   = (form.get('msg') || '').trim().slice(0, 2000);
 
     if (!name || !msg) {
       return new Response(JSON.stringify({ ok: false, error: 'name and message required' }), {
@@ -21,7 +22,10 @@ export default {
       });
     }
 
-    const body = url ? 'url: ' + url + '\n\n' + msg : msg;
+    let meta = '';
+    if (url)   meta += 'url: ' + url + '\n';
+    if (email) meta += 'email: ' + email + '\n';
+    const body = meta ? meta + '\n' + msg : msg;
 
     const ghRes = await fetch(
       'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/issues',
