@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shorknet — about</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/8DL1L17M/n.gif">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .nav-bar {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin: 0 0 48px;
+        }
+
+        .nav-bar a {
+            display: inline-block;
+            padding: 6px 14px;
+            font-size: 13px;
+            color: #5a8a7e;
+            border: 1px solid transparent;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .nav-bar a:hover {
+            color: #e0f0e8;
+            border-color: #1e2e2a;
+            text-decoration: none;
+        }
+        .nav-bar a.current {
+            color: #d0e8de;
+            border-color: #1e2e2a;
+            background: #16221e;
+        }
+
+        .letter {
+            background: #16221e;
+            border: 1px solid #1e2e2a;
+            padding: 32px 32px 24px;
+            position: relative;
+        }
+
+        .letter p {
+            margin: 0 0 16px;
+            color: #b0cac0;
+            font-size: 14px;
+        }
+
+        .letter p:last-child {
+            margin-bottom: 0;
+        }
+
+        .letter date {
+            display: block;
+            font-size: 12px;
+            color: #4a7a6e;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .letter .greeting {
+            font-size: 16px;
+            font-weight: 600;
+            color: #d0e8de;
+        }
+
+        .letter .signoff {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #1e2e2a;
+            font-size: 13px;
+            color: #5a8a7e;
+        }
+
+        .letter .signoff strong {
+            color: #b0cac0;
+        }
+
+        .links-mini {
+            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .links-mini a {
+            display: inline-block;
+            padding: 5px 12px;
+            font-size: 12px;
+            background: #16221e;
+            color: #6a9a8e;
+            border: 1px solid #1e2e2a;
+        }
+        .links-mini a:hover {
+            background: #1e2e28;
+            color: #e0f0e8;
+            text-decoration: none;
+            border-color: #2dd4bf44;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 32px;
+            font-size: 13px;
+            color: #4a7a6e;
+        }
+        .back:hover {
+            color: #5eead4;
+        }
+
+        .foot {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #162622;
+            font-size: 12px;
+            color: #3a5a52;
+            text-align: center;
+        }
+        .foot a {
+            color: #4a7a6e;
+        }
+        .foot a:hover {
+            color: #5eead4;
+        }
+
+        @media (max-width: 540px) {
+            .page {
+                padding: 28px 16px 48px;
+            }
+            .letter {
+                padding: 24px 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="nav-bar">
+            <a href="index.html">home</a>
+            <a href="aboutme.html" class="current">about</a>
+            <a href="guestbook.html">guestbook</a>
+            <a href="resources.html">resources</a>
+            <a href="https://git.shorknet.net" target="_blank">git</a>
+            <a href="https://github.com/ShorkiStudios" target="_blank">github</a>
+        </div>
+
+        <div class="letter">
+            <date>shorknet / about</date>
+
+            <p class="greeting">so you want to know who i am.</p>
+
+            <p>
+                i'm shorki. i'm a weirdo who loves technology — not in a clean, 
+                corporate way, but in the way that makes you stay up until 4am 
+                trying to get something to work just because it seemed impossible.
+            </p>
+
+            <p>
+                this site is my corner of the web. no templates, no themes, no 
+                following trends. just a page i built piece by piece, the way 
+                i wanted it. it's rough around the edges and i like it that way.
+            </p>
+
+            <p>
+                you'll find me across a bunch of platforms if you want to reach out.
+                i'm on discord, twitter, steam, bluesky — the usual spots. or you 
+                can drop something in the guestbook. i read all of them.
+            </p>
+
+            <p>
+                thanks for stopping by. make some noise while you're here.
+            </p>
+
+            <div class="signoff">
+                <strong>shorki</strong> — <em>because daddy said so.</em>
+            </div>
+        </div>
+
+        <div class="links-mini">
+            <a href="https://discordapp.com/users/929765716876476466" target="_blank">discord</a>
+            <a href="https://x.com/daddyshorki" target="_blank">twitter</a>
+            <a href="https://steamcommunity.com/id/ShorkiStudios/" target="_blank">steam</a>
+            <a href="https://bsky.app/profile/shorknet.net" target="_blank">bluesky</a>
+            <a href="https://cyberfurz.social/@DaddyRexx" target="_blank">cyberfurz</a>
+            <a href="https://vrchat.com/home/user/usr_06f2af80-e44c-4898-b5a0-f9eb97689327" target="_blank">vrc</a>
+            <a href="http://www.t.me/DaddyShorki" target="_blank">telegram</a>
+            <a href="https://github.com/ShorkiStudios" target="_blank">github</a>
+            <a href="https://git.shorknet.net" target="_blank">git</a>
+        </div>
+
+        <a href="index.html" class="back">← back</a>
+
+        <div class="foot">
+            shorki &nbsp;◈&nbsp; <a href="https://www.youtube.com/@patrlim" target="_blank">from amanda, with love &lt;3</a>
+        </div>
+    </div>
+</body>
+</html>

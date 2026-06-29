@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>daddy's guestbook — shorknet</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a0d0b;
+            color: #c4d4cc;
+            font-family: Inter, system-ui, -apple-system, sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .nav-bar {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin: 0 0 48px;
+        }
+
+        .nav-bar a {
+            display: inline-block;
+            padding: 6px 14px;
+            font-size: 13px;
+            color: #4a7a6e;
+            border: 1px solid transparent;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .nav-bar a:hover {
+            color: #e0f0e8;
+            border-color: #1a2a26;
+            text-decoration: none;
+        }
+        .nav-bar a.current {
+            color: #c0ded4;
+            border-color: #1a2a26;
+            background: #141e1a;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .badge span {
+            font-size: 32px;
+        }
+
+        .badge .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #4a7a6e;
+            background: #141e1a;
+            border: 1px solid #1a2a26;
+            padding: 4px 12px;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            margin: 0 0 4px;
+            color: #e0eee8;
+        }
+
+        h1 em {
+            font-style: normal;
+            color: #2dd4bf;
+        }
+
+        .sub {
+            font-size: 14px;
+            color: #5a8a7e;
+            margin: 0 0 36px;
+        }
+
+        .callout {
+            margin-bottom: 36px;
+            padding: 24px 28px;
+            background: #141e1a;
+            border: 1px solid #1a2a26;
+            font-size: 14px;
+            color: #8ab8aa;
+            line-height: 1.7;
+        }
+
+        .callout strong {
+            color: #d0e8de;
+        }
+
+        .callout .shoutout {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #4a7a6e;
+        }
+
+        .gb-form {
+            background: #141e1a;
+            border: 1px solid #1a2a26;
+            padding: 28px;
+            margin-bottom: 32px;
+        }
+
+        .gb-form label {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #5a8a7e;
+            margin-bottom: 4px;
+        }
+
+        .gb-form input,
+        .gb-form textarea {
+            width: 100%;
+            background: #0a120e;
+            border: 1px solid #1a2a26;
+            color: #d0e8de;
+            font-family: Inter, system-ui, sans-serif;
+            font-size: 14px;
+            padding: 10px 14px;
+            margin-bottom: 16px;
+            outline: none;
+            transition: border-color 0.15s;
+        }
+
+        .gb-form input:focus,
+        .gb-form textarea:focus {
+            border-color: #2dd4bf66;
+        }
+
+        .gb-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .gb-form .row {
+            display: flex;
+            gap: 16px;
+        }
+
+        .gb-form .row > * {
+            flex: 1;
+        }
+
+        .gb-form button {
+            background: #1a2e28;
+            border: 1px solid #2dd4bf44;
+            color: #2dd4bf;
+            font-family: Inter, system-ui, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 28px;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        .gb-form button:hover {
+            background: #1e3a30;
+            border-color: #2dd4bf88;
+        }
+
+        .gb-form button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .gb-form .status {
+            font-size: 13px;
+            margin-top: 12px;
+            min-height: 20px;
+        }
+
+        .gb-form .status.ok {
+            color: #2dd4bf;
+        }
+        .gb-form .status.err {
+            color: #e86a6a;
+        }
+        .gb-form .status.loading {
+            color: #5a8a7e;
+        }
+
+        .entries {
+            border: 1px solid #1a2a26;
+        }
+
+        .entries .empty {
+            padding: 40px 20px;
+            text-align: center;
+            color: #4a7a6e;
+            font-size: 14px;
+        }
+
+        .entry {
+            padding: 20px 24px;
+            border-bottom: 1px solid #1a2a26;
+        }
+
+        .entry:last-child {
+            border-bottom: none;
+        }
+
+        .entry .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .entry .name {
+            font-weight: 600;
+            color: #d0e8de;
+            font-size: 14px;
+        }
+
+        .entry .name a {
+            color: #d0e8de;
+        }
+        .entry .name a:hover {
+            color: #2dd4bf;
+        }
+
+        .entry .date {
+            font-size: 11px;
+            color: #4a7a6e;
+            white-space: nowrap;
+        }
+
+        .entry .msg {
+            font-size: 14px;
+            color: #b0ccc0;
+            line-height: 1.6;
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .footer-note {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #16201c;
+            font-size: 12px;
+            color: #3a5a52;
+            text-align: center;
+        }
+        .footer-note a {
+            color: #4a7a6e;
+        }
+        .footer-note a:hover {
+            color: #5eead4;
+        }
+
+        @media (max-width: 540px) {
+            .container {
+                padding: 28px 16px 48px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            .gb-form .row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .entry .head {
+                flex-direction: column;
+                gap: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <a href="index.html">home</a>
+            <a href="aboutme.html">about</a>
+            <a href="guestbook.html" class="current">guestbook</a>
+            <a href="resources.html">resources</a>
+            <a href="https://git.shorknet.net" target="_blank">git</a>
+            <a href="https://github.com/ShorkiStudios" target="_blank">github</a>
+        </div>
+
+        <div class="badge">
+            <span>🦈</span>
+            <div class="label">because daddy said so</div>
+        </div>
+
+        <h1>sign the<br>guestbook<em>.</em></h1>
+        <p class="sub">shorki / shorknet</p>
+
+        <div class="callout">
+            <strong>hey, you made it.</strong> this is where you leave your mark — a link, a
+            message, a shitpost, whatever. i read every single one. don't be shy,
+            this shark doesn't bite unless asked.
+            <div class="shoutout">🦈 chomp chomp mfer</div>
+        </div>
+
+        <div class="gb-form" id="gb-form">
+            <div class="row">
+                <div>
+                    <label for="gb-name">name</label>
+                    <input type="text" id="gb-name" maxlength="60" placeholder="who's this?">
+                </div>
+                <div>
+                    <label for="gb-url">website</label>
+                    <input type="url" id="gb-url" maxlength="200" placeholder="optional">
+                </div>
+            </div>
+            <label for="gb-msg">message</label>
+            <textarea id="gb-msg" maxlength="2000" placeholder="say something..."></textarea>
+            <button id="gb-submit">send it</button>
+            <div class="status" id="gb-status"></div>
+        </div>
+
+        <div class="entries" id="gb-entries">
+            <div class="empty">no messages yet. be the first.</div>
+        </div>
+
+        <div class="footer-note">
+            shorki &nbsp;◈&nbsp; <a href="https://www.youtube.com/@patrlim" target="_blank">from amanda, with love &lt;3</a>
+        </div>
+    </div>
+
+    <script>
+        const GB_WORKER = 'https://gb-worker.shorki-s-account.workers.dev';
+        const GH_OWNER = 'ShorkiStudios';
+        const GH_REPO  = 'shorknet-guestbook';
+        const GH_LABEL = 'guestbook';
+
+        async function loadEntries() {
+            const el = document.getElementById('gb-entries');
+            try {
+                const r = await fetch(
+                    'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/issues?labels=' + GH_LABEL + '&state=all&per_page=100'
+                );
+                if (!r.ok) throw new Error('fetch failed');
+                const issues = await r.json();
+                if (!issues.length) {
+                    el.innerHTML = '<div class="empty">no messages yet. be the first.</div>';
+                    return;
+                }
+                const entries = issues.map(i => parseIssue(i)).filter(Boolean);
+                el.innerHTML = entries.reverse().map(e => {
+                    const name = e.url
+                        ? '<a href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(e.name) + '</a>'
+                        : esc(e.name);
+                    return '<div class="entry"><div class="head"><span class="name">' + name + '</span><span class="date">' + e.date + '</span></div><p class="msg">' + esc(e.msg) + '</p></div>';
+                }).join('');
+            } catch {
+                fallbackLoad(el);
+            }
+        }
+
+        function parseIssue(issue) {
+            const title = issue.title || '';
+            const body  = issue.body || '';
+            const firstLine = body.split('\n')[0] || '';
+            const rest = body.split('\n').slice(1).join('\n').trim();
+
+            const urlMatch = firstLine.match(/^url:\s*(.+)/i);
+            const url = urlMatch ? urlMatch[1].trim() : '';
+            const msg = urlMatch ? rest : body;
+            const date = (issue.created_at || '').split('T')[0];
+
+            return { name: title, url, msg, date };
+        }
+
+        function esc(s) {
+            const d = document.createElement('div');
+            d.textContent = s;
+            return d.innerHTML;
+        }
+
+        function fallbackLoad(el) {
+            const stored = localStorage.getItem('shorknet_gb');
+            if (!stored) {
+                el.innerHTML = '<div class="empty">no messages yet. be the first.</div>';
+                return;
+            }
+            const data = JSON.parse(stored);
+            el.innerHTML = data.reverse().map(e => {
+                const name = e.url
+                    ? '<a href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(e.name) + '</a>'
+                    : esc(e.name);
+                return '<div class="entry"><div class="head"><span class="name">' + name + '</span><span class="date">' + e.date + '</span></div><p class="msg">' + esc(e.msg) + '</p></div>';
+            }).join('');
+        }
+
+        document.getElementById('gb-submit').addEventListener('click', async function() {
+            const name = document.getElementById('gb-name').value.trim();
+            const url  = document.getElementById('gb-url').value.trim();
+            const msg  = document.getElementById('gb-msg').value.trim();
+            const status = document.getElementById('gb-status');
+
+            if (!name) { status.textContent = 'need a name.'; status.className = 'status err'; return; }
+            if (!msg)  { status.textContent = 'need a message.'; status.className = 'status err'; return; }
+
+            this.disabled = true;
+            status.textContent = 'sending...';
+            status.className = 'status loading';
+            try {
+                const payload = new URLSearchParams({ name, url, msg });
+                const r = await fetch(GB_WORKER, { method: 'POST', body: payload });
+                if (!r.ok) throw new Error('worker error');
+                const res = await r.json();
+                if (!res.ok) throw new Error('worker returned error');
+                status.textContent = 'dropped. thanks for the noise.';
+                status.className = 'status ok';
+                document.getElementById('gb-name').value = '';
+                document.getElementById('gb-url').value = '';
+                document.getElementById('gb-msg').value = '';
+                loadEntries();
+            } catch {
+                fallbackSubmit(name, url, msg, status);
+            }
+
+            this.disabled = false;
+        });
+
+        function fallbackSubmit(name, url, msg, status) {
+            const stored = localStorage.getItem('shorknet_gb');
+            const data = stored ? JSON.parse(stored) : [];
+            const now = new Date();
+            const date = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
+            data.push({ name, url, msg, date });
+            localStorage.setItem('shorknet_gb', JSON.stringify(data));
+            status.textContent = 'saved locally (set up the github repo + token for server storage).';
+            status.className = 'status ok';
+            document.getElementById('gb-name').value = '';
+            document.getElementById('gb-url').value = '';
+            document.getElementById('gb-msg').value = '';
+            loadEntries();
+        }
+
+        loadEntries();
+    </script>
+</body>
+</html>

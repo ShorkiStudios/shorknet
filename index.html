@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shorknet — home</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/8DL1L17M/n.gif">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .tag {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #4a7a6e;
+            margin-bottom: 8px;
+        }
+
+        .headline {
+            font-size: 2.4em;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin: 0 0 4px;
+            color: #e0eee8;
+        }
+
+        .headline em {
+            font-style: normal;
+            color: #2dd4bf;
+        }
+
+        .sub {
+            color: #5a8a7e;
+            font-size: 14px;
+            margin: 0 0 32px;
+        }
+
+        .sub a {
+            color: #6a9a8e;
+            text-decoration: underline;
+        }
+        .sub a:hover {
+            color: #5eead4;
+        }
+
+        .badge-wall {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 28px 0 40px;
+        }
+
+        .badge-wall a {
+            display: inline-block;
+            padding: 7px 16px;
+            font-size: 13px;
+            background: #16221e;
+            color: #b0cac0;
+            border: 1px solid #1e2e2a;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+        }
+        .badge-wall a:hover {
+            background: #1e2e28;
+            border-color: #2dd4bf55;
+            color: #e0f0e8;
+            text-decoration: none;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .section-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #4a7a6e;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #1a2a26;
+        }
+
+        .row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .row > * {
+            flex: 1 1 200px;
+            background: #16221e;
+            padding: 20px;
+            border: 1px solid #1e2e2a;
+        }
+
+        .row h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6a9a8e;
+            margin: 0 0 12px;
+        }
+
+        .row ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .row li {
+            padding: 4px 0;
+            font-size: 13px;
+            color: #a0beb4;
+        }
+
+        .row li::before {
+            content: '>';
+            color: #4a7a6e;
+            margin-right: 8px;
+        }
+
+        .row li s {
+            color: #3a5a52;
+        }
+
+        .nav-bar {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin: 0 0 40px;
+        }
+
+        .nav-bar a {
+            display: inline-block;
+            padding: 6px 14px;
+            font-size: 13px;
+            color: #5a8a7e;
+            border: 1px solid transparent;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .nav-bar a:hover {
+            color: #e0f0e8;
+            border-color: #1e2e2a;
+            text-decoration: none;
+        }
+        .nav-bar a.current {
+            color: #d0e8de;
+            border-color: #1e2e2a;
+            background: #16221e;
+        }
+
+        .foot {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #162622;
+            font-size: 12px;
+            color: #3a5a52;
+            text-align: center;
+        }
+        .foot a {
+            color: #4a7a6e;
+        }
+        .foot a:hover {
+            color: #5eead4;
+        }
+
+        @media (max-width: 540px) {
+            .headline {
+                font-size: 1.6em;
+            }
+            .page {
+                padding: 28px 16px 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="nav-bar">
+            <a href="index.html" class="current">home</a>
+            <a href="aboutme.html">about</a>
+            <a href="guestbook.html">guestbook</a>
+            <a href="resources.html">resources</a>
+            <a href="https://git.shorknet.net" target="_blank">git</a>
+            <a href="https://github.com/ShorkiStudios" target="_blank">github</a>
+        </div>
+
+        <div class="tag">shorknet</div>
+        <h1 class="headline">because daddy<br>said so<em>.</em></h1>
+        <p class="sub">shorki — <a href="aboutme.html">a weirdo who loves technology</a></p>
+
+        <div class="badge-wall">
+            <a href="aboutme.html">about me</a>
+            <a href="https://discordapp.com/users/929765716876476466" target="_blank">discord</a>
+            <a href="https://x.com/daddyshorki" target="_blank">twitter</a>
+            <a href="https://steamcommunity.com/id/ShorkiStudios/" target="_blank">steam</a>
+            <a href="https://bsky.app/profile/shorknet.net" target="_blank">bluesky</a>
+            <a href="https://cyberfurz.social/@DaddyRexx" target="_blank">cyberfurz</a>
+            <a href="https://vrchat.com/home/user/usr_06f2af80-e44c-4898-b5a0-f9eb97689327" target="_blank">vrc</a>
+            <a href="http://www.t.me/DaddyShorki" target="_blank">telegram</a>
+            <a href="https://shorknet.net/cdn-cgi/l/email-protection#8efde6e1fce5cefde6e1fce5e0ebfaa0e0ebfab1fdfbece4ebedfab3c7abbcbeede2e7ede5ebeaabbcbef7e1fbfcabbcbee2e7e0e5" target="_blank">email</a>
+            <a href="https://github.com/ShorkiStudios" target="_blank">github</a>
+            <a href="https://git.shorknet.net" target="_blank">git</a>
+        </div>
+
+        <div class="section">
+            <div class="section-title">map</div>
+            <p style="color:#7aa89c; font-size:14px; margin:0;">
+                this is the hub. everything branches from here.
+                this layout is something i threw together — no templates, no themes.
+                it's mine.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">now</div>
+            <div class="row">
+                <div>
+                    <h3>updates</h3>
+                    <ul>
+                        <li>
+                            <strong style="color:#6a9a8e;font-size:12px;">28/06/2026</strong><br>
+                            welcome to the new shorknet. total rebuild, all original.
+                        </li>
+                        <li>
+                            <strong style="color:#6a9a8e;font-size:12px;">01/06/2026</strong><br>
+                            domain shorknet.net went live.
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>to do</h3>
+                    <ul>
+                        <li>add more to the about page</li>
+                        <li>gallery maybe</li>
+                        <li>blog?</li>
+                        <li><s>get a domain</s></li>
+                        <li><s>build a real site</s></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="foot">
+            shorki &nbsp;◈&nbsp; <a href="https://www.youtube.com/@patrlim" target="_blank">from amanda, with love &lt;3</a>
+        </div>
+    </div>
+</body>
+</html>

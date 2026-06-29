@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shorknet — resources</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/8DL1L17M/n.gif">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .nav-bar {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin: 0 0 48px;
+        }
+
+        .nav-bar a {
+            display: inline-block;
+            padding: 6px 14px;
+            font-size: 13px;
+            color: #5a8a7e;
+            border: 1px solid transparent;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .nav-bar a:hover {
+            color: #e0f0e8;
+            border-color: #1e2e2a;
+            text-decoration: none;
+        }
+        .nav-bar a.current {
+            color: #d0e8de;
+            border-color: #1e2e2a;
+            background: #16221e;
+        }
+
+        .headline {
+            margin-bottom: 32px;
+        }
+
+        .headline h1 {
+            font-size: 1.6em;
+            font-weight: 700;
+            margin: 0 0 4px;
+        }
+
+        .headline p {
+            margin: 0;
+            color: #5a8a7e;
+            font-size: 14px;
+        }
+
+        .deck {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: #16221e;
+            border: 1px solid #1e2e2a;
+            padding: 20px;
+        }
+
+        .card h2 {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #5a8a7e;
+            margin: 0 0 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #1e2e2a;
+        }
+
+        .card ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .card li {
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .card li:last-child {
+            margin-bottom: 0;
+        }
+
+        .card li a {
+            display: block;
+            color: #a0c0b4;
+            line-height: 1.4;
+        }
+        .card li a:hover {
+            color: #e0f0e8;
+        }
+
+        .card li small {
+            display: block;
+            color: #4a7a6e;
+            font-size: 11px;
+            margin-top: 1px;
+        }
+
+        .foot {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #162622;
+            font-size: 12px;
+            color: #3a5a52;
+            text-align: center;
+        }
+        .foot a {
+            color: #4a7a6e;
+        }
+        .foot a:hover {
+            color: #5eead4;
+        }
+
+        @media (max-width: 540px) {
+            .page {
+                padding: 28px 16px 48px;
+            }
+            .deck {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="nav-bar">
+            <a href="index.html">home</a>
+            <a href="aboutme.html">about</a>
+            <a href="guestbook.html">guestbook</a>
+            <a href="resources.html" class="current">resources</a>
+            <a href="https://git.shorknet.net" target="_blank">git</a>
+            <a href="https://github.com/ShorkiStudios" target="_blank">github</a>
+        </div>
+
+        <div class="headline">
+            <h1>toolbox</h1>
+            <p>stuff i find useful. no fluff.</p>
+        </div>
+
+        <div class="deck">
+            <div class="card">
+                <h2>learn</h2>
+                <ul>
+                    <li>
+                        <a href="https://www.w3schools.com/" target="_blank">w3schools</a>
+                        <small>html, css, js references</small>
+                    </li>
+                    <li>
+                        <a href="https://developer.mozilla.org/" target="_blank">mdn web docs</a>
+                        <small>the real docs</small>
+                    </li>
+                    <li>
+                        <a href="https://caniuse.com/" target="_blank">caniuse</a>
+                        <small>browser compat tables</small>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>tools</h2>
+                <ul>
+                    <li>
+                        <a href="https://codepen.io/" target="_blank">codepen</a>
+                        <small>test snippets fast</small>
+                    </li>
+                    <li>
+                        <a href="https://validator.w3.org/" target="_blank">html validator</a>
+                        <small>check your markup</small>
+                    </li>
+                    <li>
+                        <a href="https://pagespeed.web.dev/" target="_blank">pagespeed</a>
+                        <small>performance check</small>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>hosting</h2>
+                <ul>
+                    <li>
+                        <a href="https://neocities.org/" target="_blank">neocities</a>
+                        <small>free static hosting</small>
+                    </li>
+                    <li>
+                        <a href="https://nekoweb.org/" target="_blank">nekoweb</a>
+                        <small>another indie host</small>
+                    </li>
+                    <li>
+                        <a href="https://www.netlify.com/" target="_blank">netlify</a>
+                        <small>free with ci/cd</small>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>fonts & images</h2>
+                <ul>
+                    <li>
+                        <a href="https://fonts.google.com/" target="_blank">google fonts</a>
+                        <small>free web fonts</small>
+                    </li>
+                    <li>
+                        <a href="https://www.dafont.com/" target="_blank">dafont</a>
+                        <small>thousands of fonts</small>
+                    </li>
+                    <li>
+                        <a href="https://gifcities.org/" target="_blank">gifcities</a>
+                        <small>retro gif archive</small>
+                    </li>
+                    <li>
+                        <a href="https://www.favicon.cc/" target="_blank">favicon.cc</a>
+                        <small>make a favicon</small>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>widgets</h2>
+                <ul>
+                    <li>
+                        <a href="https://www.smartgb.com/" target="_blank">smartgb</a>
+                        <small>free guestbook</small>
+                    </li>
+                    <li>
+                        <a href="https://www.cbox.ws/" target="_blank">cbox</a>
+                        <small>free chatbox</small>
+                    </li>
+                    <li>
+                        <a href="https://atabook.org/" target="_blank">atabook</a>
+                        <small>another guestbook</small>
+                    </li>
+                    <li>
+                        <a href="https://status.cafe/" target="_blank">status.cafe</a>
+                        <small>share your status</small>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>everything else</h2>
+                <ul>
+                    <li>
+                        <a href="https://goblin-heart.net/sadgrl/webmastery/" target="_blank">sadgrl's webmastery</a>
+                        <small>resources & backgrounds</small>
+                    </li>
+                    <li>
+                        <a href="https://blinkies.cafe/" target="_blank">blinkies.cafe</a>
+                        <small>make blinkies</small>
+                    </li>
+                    <li>
+                        <a href="https://dimden.dev/navlinkads" target="_blank">navlink ads</a>
+                        <small>indie web banners</small>
+                    </li>
+                    <li>
+                        <a href="https://tamanotchi.world/" target="_blank">tamanotchi</a>
+                        <small>virtual pet widget</small>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="foot">
+            shorki &nbsp;◈&nbsp; <a href="https://www.youtube.com/@patrlim" target="_blank">from amanda, with love &lt;3</a>
+        </div>
+    </div>
+</body>
+</html>
