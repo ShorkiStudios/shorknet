@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -9,11 +11,11 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background: #0c1412;
-    color: #d0ded8;
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background: #0a0d0b;
+    color: #c4d4cc;
+    font-family: Inter, system-ui, -apple-system, sans-serif;
     font-size: 15px;
-    line-height: 1.65;
+    line-height: 1.6;
     min-height: 100vh;
 }
 
@@ -36,6 +38,7 @@ h1, h2, h3 {
     color: #e0eee8;
     font-weight: 600;
     letter-spacing: -0.01em;
+    font-family: Inter, system-ui, -apple-system, sans-serif;
 }
 
 h1 { font-size: 1.8em; }
