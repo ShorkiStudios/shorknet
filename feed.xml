@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shorknet — blog</title>
+    <link>https://shorknet.net/blog/</link>
+    <description>longer thoughts, project notes, tech stuff. newest first. no schedule, no SEO brainrot.</description>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 Sep 2026 18:00:00 GMT</lastBuildDate>
+    <atom:link href="https://shorknet.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>hello, blog</title>
+      <link>https://shorknet.net/blog/hello-blog.html</link>
+      <guid isPermaLink="true">https://shorknet.net/blog/hello-blog.html</guid>
+      <pubDate>Wed, 30 Sep 2026 18:00:00 GMT</pubDate>
+      <description>the blog is live. here's what this is for — project notes, tech stuff i'm messing with, whatever's on my mind. posts when there's something worth saying.</description>
+    </item>
+  </channel>
+</rss>

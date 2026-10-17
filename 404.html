@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="404 — this page swam off. shorknet's custom not-found page.">
+    <meta name="theme-color" content="#0a0d0b">
+    <meta property="og:title" content="shorknet — 404">
+    <meta property="og:description" content="404 — this page swam off.">
+    <meta property="og:image" content="https://shorknet.net/og.png">
+    <link rel="alternate" type="application/rss+xml" title="shorknet — blog" href="https://shorknet.net/feed.xml">
+    <title>shorknet — 404</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .page {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        .nav-bar {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin: 0 0 48px;
+        }
+
+        .nav-bar a {
+            display: inline-block;
+            padding: 6px 14px;
+            font-size: 13px;
+            color: #5a8a7e;
+            border: 1px solid transparent;
+            transition: color 0.15s, border-color 0.15s;
+        }
+        .nav-bar a:hover {
+            color: #e0f0e8;
+            border-color: #1e2e2a;
+            text-decoration: none;
+        }
+        .nav-bar a.current {
+            color: #d0e8de;
+            border-color: #1e2e2a;
+            background: #16221e;
+        }
+
+        .letter {
+            background: #16221e;
+            border: 1px solid #1e2e2a;
+            padding: 32px 32px 24px;
+            position: relative;
+        }
+
+        .letter p {
+            margin: 0 0 16px;
+            color: #b0cac0;
+            font-size: 14px;
+        }
+
+        .letter p:last-child {
+            margin-bottom: 0;
+        }
+
+        .letter date {
+            display: block;
+            font-size: 12px;
+            color: #4a7a6e;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .letter .greeting {
+            font-size: 16px;
+            font-weight: 600;
+            color: #d0e8de;
+        }
+
+        .letter .signoff {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #1e2e2a;
+            font-size: 13px;
+            color: #5a8a7e;
+        }
+
+        .letter .signoff strong {
+            color: #b0cac0;
+        }
+
+        .links-mini {
+            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .links-mini a {
+            display: inline-block;
+            padding: 5px 12px;
+            font-size: 12px;
+            background: #16221e;
+            color: #6a9a8e;
+            border: 1px solid #1e2e2a;
+        }
+        .links-mini a:hover {
+            background: #1e2e28;
+            color: #e0f0e8;
+            text-decoration: none;
+            border-color: #2dd4bf44;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 32px;
+            font-size: 13px;
+            color: #4a7a6e;
+        }
+        .back:hover {
+            color: #5eead4;
+        }
+
+        .foot {
+            margin-top: 48px;
+            padding-top: 20px;
+            border-top: 1px solid #162622;
+            font-size: 12px;
+            color: #3a5a52;
+            text-align: center;
+        }
+        .foot a {
+            color: #4a7a6e;
+        }
+        .foot a:hover {
+            color: #5eead4;
+        }
+
+        @media (max-width: 540px) {
+            .page {
+                padding: 28px 16px 48px;
+            }
+            .letter {
+                padding: 24px 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="nav-bar">
+            <a href="/index.html">home</a>
+            <a href="/aboutme.html">about</a>
+            <a href="/blog/">blog</a>
+            <a href="/guestbook.html">guestbook</a>
+            <a href="/resources.html">resources</a>
+            <a href="/feed.xml">rss</a>
+            <a href="https://git.shorknet.net" target="_blank">git</a>
+            <a href="https://github.com/ShorkiStudios" target="_blank">github</a>
+        </div>
+
+        <div class="letter">
+            <p class="greeting">404 — this page swam off. 🦈</p>
+            <p>whatever you were looking for isn't here. could be a dead link,
+            a typo, or it just never existed in the first place.</p>
+            <p>no hard feelings. the water's full of pages — try the
+            <a href="/index.html">home page</a>, the <a href="/blog/">blog</a>,
+            or sign the <a href="/guestbook.html">guestbook</a> while you're here.</p>
+            <div class="signoff"><strong>shorki</strong></div>
+        </div>
+
+        <div class="foot">shorki</div>
+    </div>
+</body>
+</html>
