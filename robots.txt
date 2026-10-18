@@ -1,3 +1,89 @@
+# shorknet.net - a personal site, written by a human.
+# People: welcome. Search engines indexing for real search results: welcome.
+# AI crawlers, scrapers, and dataset harvesters: not welcome. See the
+# no-bots policy on the site for the human-readable version.
+#
+# Content-Signal: ai-train=no, search=yes, ai-input=no
+
+# OpenAI
+User-agent: GPTBot
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-User
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# Google AI training (does not affect normal Google Search indexing)
+User-agent: Google-Extended
+Disallow: /
+
+# Common Crawl (feeds many AI datasets)
+User-agent: CCBot
+Disallow: /
+
+# Meta
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+# ByteDance / TikTok
+User-agent: Bytespider
+Disallow: /
+
+# Apple AI training (does not affect Applebot search indexing)
+User-agent: Applebot-Extended
+Disallow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Perplexity-User
+Disallow: /
+
+# Amazon
+User-agent: Amazonbot
+Disallow: /
+
+# Cohere
+User-agent: cohere-ai
+Disallow: /
+
+# Misc scrapers / dataset builders
+User-agent: Diffbot
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: MistralAI-User
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
+
+# Everyone else (humans' browsers, search engines, feed readers)
 User-agent: *
 Allow: /
+
 Sitemap: https://shorknet.net/sitemap.xml
