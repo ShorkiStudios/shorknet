@@ -6,6 +6,7 @@
       <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="robots" content="noai, noimageai"/>
         <title><xsl:value-of select="title"/> — feed</title>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
         <link rel="stylesheet" href="/css/style.css"/>
@@ -48,7 +49,7 @@
             </div>
           </xsl:for-each>
 
-          <div class="foot">shorki &#x1F988;</div>
+          <div class="foot">shorki &#x1F988;<br/>&#x1F6AB;&#x1F916; no bots — human-made site. no scraping, no ai training, no automated harvesting.</div>
         </div>
       </body>
     </html>
