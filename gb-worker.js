@@ -2,12 +2,37 @@ const GH_OWNER = 'ShorkiStudios';
 const GH_REPO  = 'shorknet-guestbook';
 const GH_LABEL = 'guestbook';
 
+const ALLOWED_ORIGINS = [
+  'https://shorknet.net',
+  'https://www.shorknet.net',
+];
+
+function corsHeaders(request) {
+  const origin = request.headers.get('Origin') || '';
+  const allow = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    'Access-Control-Allow-Origin': allow,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Vary': 'Origin',
+  };
+}
+
+function json(request, obj, status = 200) {
+  return new Response(JSON.stringify(obj), {
+    status,
+    headers: { 'content-type': 'application/json', ...corsHeaders(request) },
+  });
+}
+
 export default {
   async fetch(request, env) {
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { status: 204, headers: corsHeaders(request) });
+    }
+
     if (request.method !== 'POST') {
-      return new Response(JSON.stringify({ ok: false, error: 'POST only' }), {
-        headers: { 'content-type': 'application/json' },
-      });
+      return json(request, { ok: false, error: 'POST only' });
     }
 
     const form = await request.formData();
@@ -17,9 +42,7 @@ export default {
     const msg   = (form.get('msg') || '').trim().slice(0, 2000);
 
     if (!name || !msg) {
-      return new Response(JSON.stringify({ ok: false, error: 'name and message required' }), {
-        headers: { 'content-type': 'application/json' },
-      });
+      return json(request, { ok: false, error: 'name and message required' });
     }
 
     let meta = '';
@@ -45,13 +68,9 @@ export default {
     );
 
     if (!ghRes.ok) {
-      return new Response(JSON.stringify({ ok: false, error: 'github api error' }), {
-        headers: { 'content-type': 'application/json' },
-      });
+      return json(request, { ok: false, error: 'github api error' });
     }
 
-    return new Response(JSON.stringify({ ok: true }), {
-      headers: { 'content-type': 'application/json' },
-    });
+    return json(request, { ok: true });
   },
 };
